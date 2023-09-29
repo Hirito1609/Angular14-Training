@@ -1,0 +1,8 @@
+integrating bootstrap in angular -- done
+Conditional content projection/ transclusion in angular -- done
+Active menu header --done
+disable button on click --done
+?@ViewChild after tuesday
+work with *ngIf to toggle Login and Logout in Concepts comp --done
+learn about finding index in *ngFor. and display number in each li in Concepts comp -- done
+Try ngSwitch --done

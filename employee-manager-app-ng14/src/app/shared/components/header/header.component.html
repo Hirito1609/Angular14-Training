@@ -1,0 +1,26 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Employee Manager +</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <app-menu-list>
+          <ng-container header-list>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-danger" routerLink="/">Cart ({{cartItemsCount}})</button>
+            </li>
+          </ng-container>
+        </app-menu-list>
+      </div>
+    </div>
+  </nav>
+</header>

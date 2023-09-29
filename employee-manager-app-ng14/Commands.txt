@@ -1,0 +1,24 @@
+Github Link : https://github.com/arunprabu/employee-manager-app-ng14-aug2023
+Excel Link : https://iihtlimited-my.sharepoint.com/:x:/g/personal/arun_vijayarengan_iiht_com/EQsa2EkzkXZNvZHGlyoNpuUBmitKL5S_6fxmv4DB3k-xfA?e=ntbOP9
+
+
+
+ng g c shared/components/header
+ng g c shared/components/footer -s -t
+ng g c shared/components/menu-list -s
+npm install --save bootstrap
+ng add @angular-eslint/schematics@14.4.0   //for linting
+
+ng g c home/components/home -t -s
+ng g c concepts/components/concepts -s
+ng g c employees/components/employees -s
+ng g c about/components/about-us -s -t
+ng g c contact/components/contact -s -t
+
+ng g d concepts/directives/colorizer
+npm install prettier --save-dev
+npx prettier --write
+ng g c employees/components/add-employee -s
+ng g c employees/components/employee-details -s
+
+npm install ngx-toastr@15.2.2 --save

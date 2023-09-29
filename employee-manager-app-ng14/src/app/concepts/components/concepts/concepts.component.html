@@ -1,0 +1,176 @@
+<div>
+  <h1>Important Angular Concepts</h1>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="basic-db-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#basic-db-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="basic-db-tab-pane"
+        aria-selected="true">
+        Basic Data Binding
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="cpb-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#cpb-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="cpb-tab-pane"
+        aria-selected="false">
+        Custom Property Binding
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="ceb-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#ceb-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="ceb-tab-pane"
+        aria-selected="false">
+        Custom Event Binding
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="directives-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#directives-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="directives-tab-pane"
+        aria-selected="false">
+        Directives
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="basic-db-tab-pane"
+      role="tabpanel"
+      aria-labelledby="basic-db-tab"
+      tabindex="0">
+      <h2>Basic Data Binding</h2>
+      <h3>1. Interpolation Example</h3>
+      <p>App Name: {{ appName }}</p>
+      <hr />
+
+      <h3>2. Property Binding Example</h3>
+      <input class="form-control" type="text" [value]="companyName" />
+      <hr />
+
+      <h3>3. Event Binding</h3>
+      <button class="btn btn-primary" (click)="handleClickMe($event)">
+        Click Me
+      </button>
+      <hr />
+
+      <h3>4. Two Way Binding</h3>
+      <p>Course Name: {{ courseName }}</p>
+      <input class="form-control" type="text" [value]="courseName" />
+      <br />
+      <input class="form-control" type="text" [(ngModel)]="courseName" />
+      <hr />
+    </div>
+    <div
+      class="tab-pane fade"
+      id="cpb-tab-pane"
+      role="tabpanel"
+      aria-labelledby="cpb-tab"
+      tabindex="0">
+      <h2>Custom Property Binding</h2>
+      <app-user-info></app-user-info>
+      <app-user-info [age]="30"></app-user-info>
+      <app-user-info [age]="user.age"></app-user-info>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="ceb-tab-pane"
+      role="tabpanel"
+      aria-labelledby="ceb-tab"
+      tabindex="0">
+      <h2>Custom Event Binding</h2>
+      <h4>To share data from child to parent component</h4>
+      <div class="alert alert-success">
+        {{ reportStatus?.reportId }} {{ reportStatus?.status }}
+      </div>
+      <app-reports
+        (reportGenerated)="handleReportGenerated($event)"></app-reports>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="directives-tab-pane"
+      role="tabpanel"
+      aria-labelledby="directives-tab"
+      tabindex="0">
+      <h2>Directives</h2>
+      <h3>Special Instructions to the DOM</h3>
+      <p>2 Types</p>
+
+      <pre>
+        1. Attribute Directives
+          Examples: routerLink, routerLinkActive,
+        2. Structural Directives
+          * Impacts of these directives can be seen in structure of the page (html)
+          Examples: *ngIf, *ngFor, ngSwitch
+      </pre>
+
+      <h3>Lets understand ngIf</h3>
+
+      <div class="alert alert-success" *ngIf="isLoggedin; else NoAuthState">
+        You are authenticated. You can access all features
+      </div>
+
+      <ng-template #NoAuthState>
+        <div class="alert alert-danger">
+          Please Login to access more features.
+        </div>
+      </ng-template>
+
+      <button class="btn btn-primary" (click)="handleLoginToggle()">
+        {{ isLoggedin ? 'Logout' : 'Login' }}
+      </button>
+
+      <hr />
+
+      <h3>Lets understand ngFor</h3>
+      <ul>
+        <li *ngFor="let skill of skillSet; let i = index">
+          {{ i + 1 }}. {{ skill }}
+        </li>
+      </ul>
+
+      <h3>Custom Attribute Directive</h3>
+      <div appColorizer>Testing something wonderful!</div>
+      <hr />
+
+      <h3>Lets understand ngSwitch</h3>
+
+      <ul *ngFor="let person of people" [ngSwitch]="person.country">
+        <li *ngSwitchCase="'UK'" class="text-success">
+          {{ person.name }} ({{ person.country }})
+        </li>
+        <li *ngSwitchCase="'USA'" class="text-primary">
+          {{ person.name }} ({{ person.country }})
+        </li>
+        <li *ngSwitchCase="'HK'" class="text-danger">
+          {{ person.name }} ({{ person.country }})
+        </li>
+        <li *ngSwitchDefault class="text-warning">
+          {{ person.name }} ({{ person.country }})
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
